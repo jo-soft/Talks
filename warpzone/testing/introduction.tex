@@ -1,0 +1,237 @@
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Agenda}
+
+  \begin{itemize}
+    \item Einführung
+    \item Verscheiden Teststrategien
+    \item Wie? Ich soll alles testen?
+    \item Mocken, Fixtures, ... was ist das eigentlich?
+    \item Beispiele und Probleme
+  \end{itemize}
+\end{frame}
+
+\section{Einführung}
+\begin{frame}
+  \frametitle{Einführung}
+  \framesubtitle{Übersicht und Entwicklung}
+  Aus \textit{The Growth of Software Testing - D. Gelperin, B. Hetze} / \textit{History of Ideas in Software Testing} (\url{www.softwaretestpro.com}):
+
+    \begin{itemize}
+      \item Bis 1956: Debug orientiert. Also keine Unterscheidung zwischen Debuging und Testing.
+        \pause
+      \item 60er/70er: Trennung von Testing und Debugging. Theoretische Korrektheitsbeweise:\\
+        Equivalence Classes, Boundaries, Error Guessing, Cause/Effect Graphing (It's history, good and bad) - Functional to Unit Testing (1970)
+        \pause
+      \item 80er: Testen mit dem Ziel Fehler zu finden.\\
+        Rethinking Systems Analysis and Design -  Jerry Weinberg  (1988)
+        \pause
+      \item frühen 90er: Verbreitung von Bugtracking Systemen und Software Versions Kontrol Systemem steigt.
+        \pause
+      \item seit den späten 90er:  Aufkommen von Test Driven Development und Agiler Entwicklung
+        \pause
+      \item seit späten 00er: Oberflächen tests, Komplexe Hilstechnologien, Testing Frameworks usw.
+        \pause
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Einführung}
+  \framesubtitle{Test Philosophien}
+  \begin{itemize}
+    \item Der (End-)User testet.
+      \pause
+    \item Nur Tests vor Releases.
+      \pause
+    \item Tests sind grundlegender Bestandteil des Entwicklungsprozesses.\\
+      (Test Driven Development, Behavior Driven Development)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Einführung}
+  \framesubtitle{Was kann man von Tests erwarten?}
+  \begin{center}
+    \includegraphics[scale=0.4]{unittestingCat.jpg}
+  \end{center}
+\end{frame}
+
+\section{Teststrategien}
+\begin{frame}
+  \frametitle{Teststrategien}
+  \framesubtitle{Überblick}
+  \begin{block}{Welche Strategien gibt es zum Testen?}
+    \pause
+    \begin{itemize}
+      \item Unit Tests
+        \pause
+      \item Integrations Tests
+        \pause
+      \item Oberflächen Tests
+        \pause
+      \item Infrastruktur Tests.
+        \pause
+      \item System Tests
+        \pause
+    \end{itemize}
+  \end{block}
+  \pause
+  \begin{block}{Test Ansätze:}
+    \begin{itemize}
+      \item Blackbox Testen: Testen mit Kenntnis der Implementierung
+        \pause
+      \item Whitebox Testen: Testen ohne Kenntnis der Implementierung
+    \end{itemize}
+  \end{block}`
+\end{frame}
+
+\begin{frame}
+  \frametitle{Teststrategien}
+  \framesubtitle{Infrastruktur Tests}
+  Testen von Verfügbarkeiten, Failover, usw.
+  \begin{block}{Testbare Komponenten}
+    \pause
+    \begin{itemize}
+      \item Rechenleistung
+        \pause
+      \item Speicherinfrastrutkur
+        \pause
+      \item Netzwerkinfrastruktur
+        \pause
+      \item Hardware
+    \end{itemize}
+  \end{block}
+  \pause
+  Keine Ahnung wie dies automatisiert werden kann.\\
+
+  Weder Black- noch Whitebox Testen.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Teststrategien}
+  \framesubtitle{Oberflächen Tests I}
+  Whitebox Test von Programen über die Oberfläche.\\
+  \begin{block}{Grosser Vorteil:}
+    \pause
+    Man benötigt keine Entwickler :)
+  \end{block}
+  \pause
+  \begin{block}{Was ist testbar?}
+    \pause
+    \begin{itemize}
+    \item  Existens von GUI Elementen
+      \pause
+    \item Korrektes Verhalten der GUI Elemente
+      \pause
+    \item Korrekter Ablauf des Workflows (aus Anwendersicht)
+      \pause
+    \item Korrektes Verhalten in verschiedenen Browsern
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Teststrategien}
+  \framesubtitle{Oberflächen Tests II}
+  \begin{block}{Was ist nicht testbar}
+    \pause
+    \begin{itemize}
+    \item Nicht direkt für den Benutzer sichtbares Verhalten (z.B. Mail Versand)
+      \pause
+    \item Anforderungen, welche keine Interaktion erfordern.
+      \pause
+    \item Sicher noch mehr.
+    \end{itemize}
+  \end{block}
+  \pause
+  \begin{block}{Frameworks}
+    \begin{itemize}
+      \item Selenium(Webseitentests, Bindings u.a. für Java, Python, C\#, PHP, Ruby)
+      \item Windmill
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Teststrategien}
+  \framesubtitle{System Tests}
+  Whitebox Test gegen die gesamten Anforderungen.
+  \pause
+  \begin{block}{Was genau ist das?}
+    \begin{itemize}
+    \item  Vereinen Oberflächen-, Integrations, sowie Infrastruktur Tests
+      \pause
+    \item Darum kein einheintliches Framework.
+      \pause
+    \item Testumgebung sollte der Produktivumgebung sehr ähnlich sein.
+      \pause
+    \item Oftmals zusätzlich zu automatisierten Tests.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Teststrategien}
+  \framesubtitle{Integrations Tests I}
+  Whitebox Test gegen die API Anforderungen oder von komplexer Funktionalität.
+  \pause
+  \begin{block}{Was ist testbar?}
+    \pause
+    \begin{itemize}
+    \item (öffentliche) APIs
+      \pause
+    \item Business Logik
+      \pause
+    \end{itemize}
+  \end{block}
+
+  \pause
+  \begin{block}{Was ist nicht testbar?}
+    \pause
+    \begin{itemize}
+      \item Oberflächen ($\rightarrow$ Oberflächentests)
+        \pause
+      \item Infrastruktur ($\rightarrow$ Infrastrukturtests)
+        \pause
+      \item Konkrete Implementierungsdetails ($\rightarrow$ Unittests)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Teststrategien}
+  \framesubtitle{Integrations Tests II}
+
+  \begin{block}{Also, was macht ein Integrations Test?}
+    \pause
+    \begin{itemize}
+      \item Testet, dass implementiert wurde, was vereinbart wurde.
+        \pause
+      \item Testet konkretes Verhalten
+        \pause
+      \item Dokumentiert Business Logik
+        \pause
+      \item Große Hilfe beim Refakturieren
+    \end{itemize}
+  \end{block}
+
+  \pause
+
+  \begin{block}{Frameworks}
+    \pause
+    \begin{itemize}
+      \item Abhangig vom Einsatzgebiet und Programmiersprache
+        \pause
+      \item Erlauben automatisierung
+        \pause
+      \item Beispiele\footnote{\url{en.wikipedia.org/wiki/List\_of\_unit\_testing\_frameworks}}:
+        PyTest, EUnit, JUnit, Opmock(C/C++), Jasemine (JavaScript)
+    \end{itemize}
+  \end{block}
+
+\end{frame}

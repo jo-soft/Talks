@@ -1,0 +1,122 @@
+\documentclass[10pt,a4paper]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{verbatim}
+
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{fancyhdr}
+\usepackage{bbm}
+\usepackage{listings}
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\ttfamily\tiny,
+    morekeywords={function,begin,end,for,from,to,while,return},
+    keywordstyle=\color{black}\bfseries,
+    %mathescape=true,
+    tabsize=2,
+                                % underlined bold black keywords
+    identifierstyle=,           % nothing happens
+    commentstyle=\color{mygray}, % white comments
+    stringstyle=\color{orange},      % typewriter type for strings
+    showstringspaces=false,
+    breaklines=true}     % no special string spaces
+    
+%Theme waehlen
+%\usetheme{Berkeley}
+%\usetheme{Antibes}
+%\usetheme{Warsaw}
+%\usetheme{Bergen}
+%\usetheme{Berlin}
+
+\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+
+%\usefonttheme[onlylarge]{structurebold}
+
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+%\setbeamertemplate{navigation symbols}
+
+\setbeamertemplate{footline}[frame number]
+
+%Navigationsleiste
+
+\setbeamertemplate{navigation symbols}{} 
+
+
+%\useinnertheme{circles}
+%\useinnertheme{inmargin}
+%\useinnertheme{rectangles}
+
+%\useinnertheme{rounded}
+
+
+%\useoutertheme{infolines}
+%\useoutertheme{miniframes}
+%\useoutertheme{shadow}
+%\useoutertheme{sidebar}
+%\useoutertheme{smoothbars}
+%\useoutertheme{smoothtree}%
+%\useoutertheme{split}
+
+%\useoutertheme{tree}
+
+
+%Farbschema waehlen
+%\usecolortheme{default}%dunkelblau
+%\usecolortheme{crane}%orange
+\usecolortheme{seahorse}%hellblau
+%\usecolortheme{whale}%==default
+%\usecolortheme{albatross}%==blauer hintergrud
+%\usecolortheme{beetle}%==grauer hintergrund
+%\usecolortheme{dolphin}%==seltsam grau
+%\usecolortheme{lily}%==scharz blau
+%\usecolortheme{orchid}%==anders schwarz blau
+%\usecolortheme{wolverine}
+%\usecolortheme{rose}
+
+%\setbeamercovered{trans1parent}
+%\setbeamercovered{dynamic}
+\setbeamercovered{invisible}
+
+
+\setbeamertemplate{section in toc}[ball unnumbered]
+\setbeamertemplate{footline}[frame number] 
+%\setbeamertemplate{table of contents show}[ball unnumbered]
+
+
+\title{
+Testen, was, warum, wie, und alles was etwas damit zu tun hat.
+}
+\subtitle{
+  Naja, vieleicht nicht alles....
+}
+
+\author{
+Johannes Schneider
+}
+\date{
+\today
+}
+
+
+%\includeonly{johannes}
+\begin{document}
+\include{introduction}
+\end{document}

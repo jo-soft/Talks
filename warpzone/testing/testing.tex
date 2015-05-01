@@ -13,18 +13,18 @@
 \usepackage{bbm}
 \usepackage{listings}
 
-\lstset{% general command to set parameter(s)
-    basicstyle=\ttfamily\tiny,
-    morekeywords={function,begin,end,for,from,to,while,return},
-    keywordstyle=\color{black}\bfseries,
-    %mathescape=true,
-    tabsize=2,
-                                % underlined bold black keywords
-    identifierstyle=,           % nothing happens
-    commentstyle=\color{mygray}, % white comments
-    stringstyle=\color{orange},      % typewriter type for strings
-    showstringspaces=false,
-    breaklines=true}     % no special string spaces
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+
+\lstset{language=Python, 
+        keywordstyle=\color{keywords},
+        commentstyle=\color{comments},
+        stringstyle=\color{red},
+        showstringspaces=false,
+        identifierstyle=\color{green}
+        }
     
 %Theme waehlen
 %\usetheme{Berkeley}
@@ -119,4 +119,5 @@ Johannes Schneider
 %\includeonly{johannes}
 \begin{document}
 \include{introduction}
+\include{techniques}
 \end{document}

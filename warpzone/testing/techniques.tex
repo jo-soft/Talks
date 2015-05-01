@@ -1,0 +1,97 @@
+\section{Techniken}
+\begin{frame}
+  \frametitle{Techniken zur Unit und Integrations Tests}
+
+  \pause
+  \begin{block}{Voraussetzungen}
+    \pause
+    \begin{itemize}
+      \item Daten
+        \pause 
+      \item mehr Daten
+        \pause
+      \item Mocks
+        \pause Ideen ;)
+      \item 
+    \end{itemize}
+  \end{block}
+  \pause
+
+  \begin{block}{Verschiedene Ansätze}
+    \begin{itemize}
+      \item Restklassentests\\
+        Korrektheitstests mit dem Ziel der 100\%igen Codeabdeckungen oder Spezifikationsabdeckung.
+        \pause
+      \item Algebraische Tests\\
+        Korrektheitstests auf algebraischen Umformungen.
+        \pause
+      \item Regressionstests\\
+        Testet genau ein Fehlverhalten als folge eines Bugs.
+        \pause
+     \item Fuzzing\\
+       Testen mit Zufallsdaten.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Restklassentests}
+  \begin{block}{Was ist notwendig?}
+    \begin{itemize}
+      \item Eine Restklasse für jeden Ein-/Ausgebe Kombination (bzw. Code-Pfad)
+        \pause
+      \item Abdecken der Corner-Cases
+        \pause
+      \item Wissen über das erwartete Ergebniss
+        \pause
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Restklassentests Beispiel}
+  \begin{block}{Einfaches Beispiel I}
+    \begin{lstlisting}
+      def abs(x):
+        raise ValueError() if x is None
+        if x < 0
+          return -x
+        return x
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Restklassentests Beispiel II}
+  \begin{block}{Test positiv}
+    \begin{lstlisting}
+      def test_abs():
+        x = 42
+        assert abs(x) == x
+    \end{lstlisting}
+  \end{block}
+  \pause
+
+  \begin{block}{Test negativ}
+    \begin{lstlisting}
+      def test_abs():
+        x = -42
+        assert abs(x) == -x
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \begin{block}{Test Exception}
+    \begin{lstlisting}
+      def test_abs():
+        try:
+          abs()
+        except ValueError:
+          pass
+        else:
+          assert False
+    \end{lstlisting}
+  \end{block}
+\end{frame}
